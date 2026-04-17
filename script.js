@@ -1,7 +1,4 @@
-/**
- * Turing Machine Simulator - Simulation Logic
- * Designed for Theory of Computation Project
- */
+
 
 const PROGRAMS = {
     increment: {
@@ -197,7 +194,7 @@ class TuringMachine {
 
         const rule = prog.transitions[ruleIdx];
 
-        // Save history for Step Backward
+
         this.history.push({
             tape: [...this.tape],
             headPos: this.headPos,
@@ -208,12 +205,12 @@ class TuringMachine {
         const oldState = this.currentState;
         this.logAction(rule, oldState);
 
-        // Apply Transition
+
         this.tape[this.headPos] = rule.write;
         if (rule.move === 'R') this.headPos++;
         else if (rule.move === 'L') this.headPos--;
 
-        // Expand Tape
+
         if (this.headPos < 0) {
             this.tape.unshift(prog.blank);
             this.headPos = 0;
@@ -276,7 +273,7 @@ class TuringMachine {
             this.dom.result.className = '';
         }
 
-        // Render Tape Window
+
         this.dom.tape.innerHTML = '';
         const win = 11;
         const start = this.headPos - 5;
@@ -313,7 +310,7 @@ class TuringMachine {
     }
 }
 
-// Global Init
+
 document.addEventListener('DOMContentLoaded', () => {
     window.TM_CONTROLLER = new TuringMachine();
 });

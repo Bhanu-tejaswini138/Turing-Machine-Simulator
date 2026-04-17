@@ -27,14 +27,14 @@ body {
   overflow: hidden;
 }
 
-/* Layout */
+
 .main-layout {
   display: grid;
   grid-template-columns: 320px 1fr;
   height: 100vh;
 }
 
-/* Sidebar */
+
 .sidebar {
   background-color: var(--bg-sidebar);
   color: var(--text-light);
@@ -114,7 +114,7 @@ body {
   font-style: italic;
 }
 
-/* Log Section */
+
 .log-section {
   flex: 1;
   display: flex;
@@ -161,7 +161,7 @@ body {
   padding-top: 1.5rem;
 }
 
-/* Simulation Area */
+
 .simulation-area {
   padding: 2rem;
   display: flex;
@@ -252,7 +252,7 @@ body {
   border-radius: 4px;
 }
 
-/* Dashboard */
+
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -326,7 +326,7 @@ body {
   accent-color: var(--accent-primary);
 }
 
-/* Stats */
+
 .stat-row {
   display: flex;
   justify-content: space-between;
