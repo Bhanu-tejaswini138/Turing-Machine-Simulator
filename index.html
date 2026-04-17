@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turing Machine Simulator | Theory of Computation</title>
+    <!-- Clean, academic fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-layout">
+        <!-- Sidebar and Configuration -->
+        <aside class="sidebar">
+            <header>
+                <h1>Turing Machine Simulator</h1>
+            </header>
+
+            <div class="config-panel card">
+                <div class="section">
+                    <label>Input String</label>
+                    <div class="input-group">
+                        <input type="text" id="tape-input" placeholder="Enter string (e.g. 1011)...">
+                        <button id="btn-load" class="action-btn-sm">Load</button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <label>Choose Program</label>
+                    <select id="program-select" class="program-select">
+                        <option value="increment">Binary Incrementer</option>
+                        <option value="palindrome">Palindrome Checker</option>
+                        <option value="anbn">aⁿbⁿ Language Accepter</option>
+                        <option value="unaryAdd">Unary Addition Engine</option>
+                    </select>
+                </div>
+
+                <div class="program-description">
+                    <p id="program-desc">Loading machine details...</p>
+                </div>
+            </div>
+
+            <!-- Execution Logs -->
+            <div class="log-section card">
+                <div class="log-header">
+                    <span>Execution Log</span>
+                </div>
+                <div id="formal-console" class="log-body">
+                    <div class="log-entry system">Project initialized.</div>
+                    <div class="log-entry system">Ready to simulate.</div>
+                </div>
+            </div>
+
+            <footer class="personalization">
+                <p>Turing Machine Simulator</p>
+                <p>Developed by <strong>Tejaswini</strong></p>
+            </footer>
+        </aside>
+
+        <!-- Main Simulation Area -->
+        <main class="simulation-area">
+            <!-- Tape Visualization -->
+            <div id="tape-section" class="tape-card card">
+                <div class="tape-viewport">
+                    <div id="tape-cells" class="tape-row"></div>
+                </div>
+                <div class="head-probe">
+                    <div class="probe-label">Head</div>
+                    <div class="probe-line"></div>
+                </div>
+            </div>
+
+            <!-- Controls and Stats -->
+            <div class="dashboard-grid">
+                <div class="controls card">
+                    <div class="button-grid">
+                        <button id="btn-step" class="btn academic">Step Forward</button>
+                        <button id="btn-back" class="btn academic secondary">Step Backward</button>
+                        <button id="btn-play" class="btn academic primary">Run</button>
+                        <button id="btn-reset" class="btn academic danger">Reset</button>
+                    </div>
+                    <div class="speed-control">
+                        <label>Simulation Speed</label>
+                        <input type="range" id="speed-range" min="1" max="100" value="70">
+                    </div>
+                </div>
+
+                <div class="stats-card card">
+                    <div class="stat-row">
+                        <label>Current State</label>
+                        <span id="stat-state" class="mono-text">IDLE</span>
+                    </div>
+                    <div class="stat-row">
+                        <label>Steps</label>
+                        <span id="stat-steps">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <label>Result</label>
+                        <span id="stat-result" class="result-idle">Awaiting Input</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transition Table -->
+            <div class="table-area card">
+                <h3>Transition Table (δ)</h3>
+                <div class="table-container">
+                    <table id="rule-table">
+                        <thead>
+                            <tr>
+                                <th>Current State</th>
+                                <th>Read</th>
+                                <th>Write</th>
+                                <th>Move</th>
+                                <th>Next State</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rule-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
